@@ -5,7 +5,6 @@ import Header from './Header.js';
 class Home extends Component{
   constructor(props){
     super(props);
-    console.log(this.props.activities);
   }
   render(){
     return(

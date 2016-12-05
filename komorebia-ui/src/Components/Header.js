@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import '../CSS/Header.css';
+import Logo from './Logo.js';
+import LoginHeader from './LoginHeader.js';
 
 class Header extends Component{
   render(){
     return(
       <header>
-        <h2>Komorebia</h2>
+        <Logo />
+        <LoginHeader />
       </header>
     )
   }

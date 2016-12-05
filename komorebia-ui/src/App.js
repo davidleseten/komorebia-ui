@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Home from './Components/Home.js';
-import {Router, Route, hasHistory, Link, IndexLink} from 'react-router';
+import {Router, Route, hashHistory, Link, IndexLink} from 'react-router';
 
 class App extends Component {
   constructor(props){
@@ -33,6 +33,12 @@ class App extends Component {
   render() {
     let currentDisplay = this._getActivities();
     return (
+      // <Router history={hashHistory}>
+      //   <Route path="/" component={Login}>
+      //     <Route path="home" component={Home}/>
+      //     <Route path="*" component={NoMatch}/>
+      //   </Route>
+      // </Router>
       <div className="App">
         {currentDisplay}
       </div>

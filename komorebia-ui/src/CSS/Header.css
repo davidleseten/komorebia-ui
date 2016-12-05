@@ -2,4 +2,6 @@ header{
   background-color: #222222;
   padding: 10px 0px;
   color: #ffffff;
+  display: flex;
+  justify-content: space-between;
 }
