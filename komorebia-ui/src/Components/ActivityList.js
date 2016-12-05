@@ -11,6 +11,7 @@ class ActivityList extends Component{
       <div>
         <h2>Activity List</h2>
         {this.props.activities.map((activity, index) => <ActivityListItem activity={activity} key={index} />)}
+        {/* {this.props.activities.map((activity, index) => <p key={index}>{activity.title}</p>)} */}
       </div>
     )
   }

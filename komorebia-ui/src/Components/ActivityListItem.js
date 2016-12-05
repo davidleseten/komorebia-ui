@@ -4,9 +4,12 @@ class ActivityListItem extends Component{
   render() {
     return (
       <div>
-        <p>{this.props.title}</p>
+        <img src={this.props.activity.picture} alt={this.props.activity.title} />
+        <h3>{this.props.activity.title}</h3>
+        <p>{this.props.activity.description}</p>
       </div>
     )
   }
-
 }
+
+export default ActivityListItem;
