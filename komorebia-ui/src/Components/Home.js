@@ -3,10 +3,15 @@ import Body from './Body.js';
 import Header from './Header.js';
 
 class Home extends Component{
+  constructor(props){
+    super(props);
+    console.log(this.props.activities);
+  }
   render(){
     return(
       <div>
-        <h1>Cow</h1>
+        <Header />
+        <Body activities={this.props.activities} />
       </div>
     )
   }
