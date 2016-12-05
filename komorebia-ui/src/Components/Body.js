@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import Body from './Body.js';
-import Header from './Header.js';
 
-class Home extends Component{
+class Body extends Component{
   render(){
     return(
       <div>
@@ -12,4 +10,4 @@ class Home extends Component{
   }
 }
 
-export default Home;
+export default Body;
