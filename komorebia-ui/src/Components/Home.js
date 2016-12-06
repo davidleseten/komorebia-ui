@@ -5,8 +5,9 @@ import Header from './Header.js';
 class Home extends Component{
   constructor(props){
     super(props);
-    console.log(this.props.current);
+    //console.log(this.props.current);
   }
+
   render(){
     return(
       <div>

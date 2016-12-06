@@ -4,6 +4,9 @@ import Logo from './Logo.js';
 import LoginHeader from './LoginHeader.js';
 
 class Header extends Component{
+  componentDidMount(){
+    //console.log(this.props.current);
+  }
   render(){
     return(
       <header>
