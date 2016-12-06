@@ -11,24 +11,44 @@ class App extends Component {
       spotlightActivities: [],
       myCreatedActivities: [],
       myActivities: [],
-      activitiesLoaded: false
+      appUsers: [],
+      activitiesLoaded: false,
+      currentUser: {}
     }
     this._getActivities = this._getActivities.bind(this);
     this._loadActivities = this._loadActivities.bind(this);
+    this._getUsers = this._getUsers.bind(this);
+    this._checkUser = this._checkUser.bind(this);
+
+  }
+  componentWillMount(){
     this._getActivities();
+    this._getUsers();
+    this._checkUser();
   }
   _getActivities(){
     axios.get('https://komorebia-api.herokuapp.com/activities').then((response) =>{
       let newActivities = response.data;
       this.setState({spotlightActivities: newActivities, activitiesLoaded: true})
-
+    })
+  }
+  _getUsers(){
+    axios.get('https://komorebia-api.herokuapp.com/appusers').then((response) =>{
+      let newUsers = response.data;
+      this.setState({appUsers: newUsers})
+    })
+  }
+  _checkUser(){
+    let profileObject = localStorage.getItem('profile');
+    this.setState({
+      currentUser: profileObject
     })
   }
   _loadActivities(){
     if (this.state.activitiesLoaded === true){
-      return <Home activities={this.state.spotlightActivities} />
+      return <Home activities={this.state.spotlightActivities} users={this.state.appUsers} current={this.state.currentUser} />
     } else {
-      return <h3>Loading...</h3>
+      return <h3>Loading Activities...</h3>
     }
   }
   // _addActivities(){
