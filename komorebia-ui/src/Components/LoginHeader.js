@@ -4,13 +4,14 @@ const auth = new AuthService('P5EDxUyc02sAmpwjQuOAlkrr9GXCgwrZ', 'spiders1999.au
 import {Router, Route, hashHistory, Link, IndexLink} from 'react-router';
 import '../CSS/LoginHeader.css';
 
+
 class LoginHeader extends Component{
   _logoutLink(){
     return (
       <a href="#" onClick={(e) => {
         e.preventDefault();
         auth.logout();
-        //hashHistory.push('/');
+        hashHistory.push('/');
       }}>Log out</a>
 
     )
@@ -25,7 +26,6 @@ class LoginHeader extends Component{
     )
   }
   render(){
-    console.log(auth);
     var sessionLink;
     if (auth.loggedIn()){
       sessionLink = this._logoutLink();

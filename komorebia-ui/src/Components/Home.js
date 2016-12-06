@@ -5,12 +5,14 @@ import Header from './Header.js';
 class Home extends Component{
   constructor(props){
     super(props);
+    //console.log(this.props.current);
   }
+
   render(){
     return(
       <div>
-        <Header />
-        <Body activities={this.props.activities} />
+        <Header current={this.props.current} />
+        <Body activities={this.props.activities} users={this.props.users} />
       </div>
     )
   }
