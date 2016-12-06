@@ -8,7 +8,7 @@ class ActivityList extends Component{
   render(){
     return(
       <div>
-        <h2>Activity List</h2>
+        <h3>Current Activitities</h3>
         {this.props.activities.map((activity, index) => <ActivityListItem activity={activity} key={index} />)}
       </div>
     )

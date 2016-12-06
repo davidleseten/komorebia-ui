@@ -13,7 +13,8 @@ class App extends Component {
       myActivities: [],
       appUsers: [],
       activitiesLoaded: false,
-      currentUser: {}
+      currentUser: {},
+      userLoaded: false
     }
     this._getActivities = this._getActivities.bind(this);
     this._loadActivities = this._loadActivities.bind(this);
@@ -64,19 +65,18 @@ class App extends Component {
     axios.post('https://komorebia-api.herokuapp.com/appusers', newUser).then((response) =>{
       console.log(response);
     }).catch((error) => {console.log(error);})
-    this.setState({
-      currentUser: profileObject
-    })
+    this._fetchUser(currentSub);
   }
   _fetchUser(userObject){
-    console.log(userObject);;
     this.setState({
-      currentUser: userObject
+      currentUser: userObject,
+      userLoaded: true
     })
   }
   _loadActivities(){
-    if (this.state.activitiesLoaded === true){
-      return <Home activities={this.state.spotlightActivities} users={this.state.appUsers} current={this.state.currentUser} />
+    if (this.state.activitiesLoaded === true && this.state.userLoaded === true){
+      console.log(this.state.currentUser);
+      return <Home activities={this.state.spotlightActivities} current={this.state.currentUser} />
     } else {
       return <h3>Loading Activities...</h3>
     }
@@ -87,7 +87,7 @@ class App extends Component {
   render() {
     let currentDisplay = this._loadActivities();
     return (
-      <div className="App">
+      <div>
         {currentDisplay}
       </div>
     );

@@ -9,7 +9,7 @@ class Body extends Component{
   render(){
     return(
       <div>
-        <h3>Current Activitities</h3>
+        
         <ActivityList activities={this.props.activities} users={this.props.users} />
       </div>
     )
