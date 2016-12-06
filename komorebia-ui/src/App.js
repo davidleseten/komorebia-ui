@@ -14,13 +14,17 @@ class App extends Component {
       activitiesLoaded: false
     }
     this._getActivities = this._getActivities.bind(this);
+    this._loadActivities = this._loadActivities.bind(this);
+    this._getActivities();
+  }
+  _getActivities(){
     axios.get('https://komorebia-api.herokuapp.com/activities').then((response) =>{
       let newActivities = response.data;
       this.setState({spotlightActivities: newActivities, activitiesLoaded: true})
 
     })
   }
-  _getActivities(){
+  _loadActivities(){
     if (this.state.activitiesLoaded === true){
       return <Home activities={this.state.spotlightActivities} />
     } else {
@@ -31,14 +35,8 @@ class App extends Component {
   //
   // }
   render() {
-    let currentDisplay = this._getActivities();
+    let currentDisplay = this._loadActivities();
     return (
-      // <Router history={hashHistory}>
-      //   <Route path="/" component={Login}>
-      //     <Route path="home" component={Home}/>
-      //     <Route path="*" component={NoMatch}/>
-      //   </Route>
-      // </Router>
       <div className="App">
         {currentDisplay}
       </div>
