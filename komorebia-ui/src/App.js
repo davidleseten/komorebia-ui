@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Home from './Components/Home.js';
-import {Router, Route, hashHistory, Link, IndexLink} from 'react-router';
+
 
 class App extends Component {
   constructor(props){
@@ -54,6 +54,7 @@ class App extends Component {
 
   _addUser(currentSub){
     let profileObject = JSON.parse(localStorage.getItem('profile'));
+    var currentDate = new Date().getTime();
     let newUser = {
       loginId: currentSub,
       firstName: profileObject.given_name,
@@ -61,6 +62,7 @@ class App extends Component {
       about: '',
       active: true,
       picture: profileObject.picture,
+      dateCreated: currentDate
     }
     axios.post('https://komorebia-api.herokuapp.com/appusers', newUser).then((response) =>{
       console.log(response);
@@ -73,10 +75,16 @@ class App extends Component {
       userLoaded: true
     })
   }
+  _addActivity(newActivity){
+    //console.log(newActivity);
+    axios.post('https://komorebia-api.herokuapp.com/activities', newActivity).then((response) =>{
+      console.log(response);
+    }).catch((error) => {console.log(error);})
+  }
   _loadActivities(){
     if (this.state.activitiesLoaded === true && this.state.userLoaded === true){
-      console.log(this.state.currentUser);
-      return <Home activities={this.state.spotlightActivities} current={this.state.currentUser} />
+      //console.log(this.state.currentUser);
+      return <Home activities={this.state.spotlightActivities} addactivity={this._addActivity} current={this.state.currentUser} />
     } else {
       return <h3>Loading Activities...</h3>
     }

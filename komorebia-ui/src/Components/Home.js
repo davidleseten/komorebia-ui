@@ -12,7 +12,7 @@ class Home extends Component{
     return(
       <div>
         <Header current={this.props.current} />
-        <Body activities={this.props.activities} users={this.props.users} />
+        <Body activities={this.props.activities} users={this.props.users} addactivity={this.props.addactivity} />
       </div>
     )
   }

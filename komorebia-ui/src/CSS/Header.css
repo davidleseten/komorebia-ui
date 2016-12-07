@@ -5,3 +5,8 @@ header{
   display: flex;
   justify-content: space-between;
 }
+.profile-image{
+  height: 50px;
+  width: auto;
+  border-radius: 25px;
+}

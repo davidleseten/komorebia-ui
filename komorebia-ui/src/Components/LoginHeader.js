@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AuthService from '../Utils/AuthService.js';
 const auth = new AuthService('P5EDxUyc02sAmpwjQuOAlkrr9GXCgwrZ', 'spiders1999.auth0.com');
-import {Router, Route, hashHistory, Link, IndexLink} from 'react-router';
+import {hashHistory} from 'react-router';
 import '../CSS/LoginHeader.css';
 
 
