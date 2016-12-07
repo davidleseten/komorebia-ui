@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AuthService from '../Utils/AuthService.js';
 const auth = new AuthService('P5EDxUyc02sAmpwjQuOAlkrr9GXCgwrZ', 'spiders1999.auth0.com');
 import {hashHistory} from 'react-router';
+import '../CSS/Login.css';
 
 class Login extends Component{
   constructor(props){
@@ -35,7 +36,14 @@ class Login extends Component{
       sessionLink = this._loginLink();
     }
     return(
-      <div>{sessionLink}</div>
+      <div className="login-page-container">
+        <div className="session-link-container">
+          <h1>Komorebia</h1>
+          <p>{sessionLink}</p>
+
+        </div>
+      </div>
+
     )
   }
 }

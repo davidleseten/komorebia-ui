@@ -11,8 +11,8 @@ class Header extends Component{
   render(){
     return(
       <header>
-        <Logo />
         <HeaderProfile current={this.props.current} />
+        <Logo />
         <LoginHeader />
       </header>
     )

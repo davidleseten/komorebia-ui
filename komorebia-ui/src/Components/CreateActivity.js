@@ -4,7 +4,12 @@ import '../CSS/CreateActivity.css'
 class CreateActivity extends Component{
   constructor(props){
     super(props);
+    this.state = {
+      divClass: 'create-activity-form hidden'
+    }
     this._handleSubmit = this._handleSubmit.bind(this);
+    this._cancelForm = this._cancelForm.bind(this);
+    this._openForm = this._openForm.bind(this);
   }
   _handleSubmit(e){
     e.preventDefault();
@@ -26,33 +31,47 @@ class CreateActivity extends Component{
     this.refs.headline.value = "";
     this.refs.description.value = "";
     this.refs.image.value = "";
+    this._cancelForm(e);
+  }
+  _cancelForm(e){
+    e.preventDefault();
+    this.refs.title.value = "";
+    this.refs.headline.value = "";
+    this.refs.description.value = "";
+    this.refs.image.value = "";
+    this.setState({divClass: 'create-activity-form hidden'})
+  }
+  _openForm(e){
+    e.preventDefault();
+    this.setState({divClass: 'create-activity-form'})
   }
   render(){
     return(
       <div>
-        <div className="create-activity-container">
-          <h1>Cows</h1>
+        <div className='create-activity-container'>
+          <a href="#" className="" onClick={this._openForm}>Add new activity</a>
         </div>
-        <div>
+        <div className={this.state.divClass}>
           <form onSubmit={(event) => this._handleSubmit(event)}>
             <p>
-              <label>Title: </label>
-              <input type="text" ref="title" placeholder="Title" />
+              {/* <label>Title: </label> */}
+              <input type="text" ref="title" className="create-input" placeholder="Title" />
             </p>
             <p>
-              <label>Headline: </label>
-              <input type="text" ref="headline" placeholder="Headline" />
+              {/* <label>Headline: </label> */}
+              <input type="text" ref="headline" className="create-input" placeholder="Headline" />
             </p>
             <p>
-              <label>Title: </label>
-              <textarea ref="description" placeholder="description"></textarea>
+              {/* <label>Title: </label> */}
+              <textarea ref="description" className="create-field" placeholder="Description"></textarea>
             </p>
             <p>
-              <label>Image: </label>
-              <input type="text" ref="image" placeholder="Image" />
+              {/* <label>Image: </label> */}
+              <input type="text" ref="image" className="create-input" placeholder="Image" />
             </p>
             <p>
-              <input type="submit" value="Create" />
+              <input type="submit" className="create-button" value="Create" />
+              <input type="button" className="create-button" value="Cancel" onClick={this._cancelForm} />
             </p>
           </form>
         </div>

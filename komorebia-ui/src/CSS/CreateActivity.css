@@ -3,3 +3,35 @@
   flex-direction: row-reverse;
   padding-right: 10px;
 }
+.create-activity-form{
+  width: 400px;
+  padding: 10px;
+  background-color: #ffffff;
+  z-index: 100;
+  margin: 0 auto;
+}
+.create-activity-form .create-input{
+  width: 350px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 3px;
+  border: solid 1px #bbbbbb;
+}
+.create-activity-form .create-field{
+  width: 350px;
+  height: 60px;
+  padding: 3px;
+  border-radius: 5px;
+  border: solid 1px #bbbbbb;
+}
+.hidden{
+  display: none;
+}
+
+.create-activity-container a{
+  display: inline-block;
+  padding: 5px 40px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #008800;
+}
