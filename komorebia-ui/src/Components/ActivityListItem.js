@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../CSS/ActivityListItem.css';
 
 class ActivityListItem extends Component{
   constructor(props){
@@ -11,11 +12,14 @@ class ActivityListItem extends Component{
   }
   render() {
     return (
-      <div>
+      <div className="activity-item-container">
         <img src={this.props.activity.picture} alt={this.props.activity.title} />
-        <h3>{this.props.activity.title}</h3>
-        <p>{this.props.activity.headline}</p>
-        <p><a href="#" onClick={this._handleAdd}>Join this activity</a></p>
+        <div className="activity-item-content">
+          <h3>{this.props.activity.title}</h3>
+          <p className="activity-headline">{this.props.activity.headline}</p>
+          <p><a href="#" onClick={this._handleAdd}>Join this activity</a></p>
+        </div>
+
       </div>
     )
   }

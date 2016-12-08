@@ -1,0 +1,30 @@
+.activity-item-container{
+  margin: 10px;
+  width: 300px;
+  box-sizing: border-box;
+  color: #222222;
+  border: 1px solid #eeeeee;
+}
+.activity-item-container img{
+  width: 298px;
+  height: auto;
+}
+.activity-item-content{
+  padding: 10px;
+}
+.activity-item-content p{
+  font-size: .8em;
+}
+.activity-headline{
+  color: #999999;
+  font-weight: 100;
+}
+.activity-item-content a{
+  display: inline-block;
+  font-size: .8em;
+  padding: 5px 20px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #008800;
+  border: none;
+}

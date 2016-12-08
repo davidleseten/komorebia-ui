@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Logo extends Component{
   render(){
     return(
-      <h2>Komorebia</h2>
+      <h2>Komorebi</h2>
     )
   }
 }

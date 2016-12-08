@@ -38,7 +38,7 @@ class Login extends Component{
     return(
       <div className="login-page-container">
         <div className="session-link-container">
-          <h1>Komorebia</h1>
+          <h1>Komorebi</h1>
           <p>{sessionLink}</p>
 
         </div>
