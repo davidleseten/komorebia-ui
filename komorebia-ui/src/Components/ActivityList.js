@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ActivityListItem from './ActivityListItem.js';
+import '../CSS/ActivityList.css'
 
 class ActivityList extends Component{
   constructor(props){
@@ -7,9 +8,8 @@ class ActivityList extends Component{
   }
   render(){
     return(
-      <div>
-        <h3>Current Activitities</h3>
-        {this.props.activities.map((activity, index) => <ActivityListItem activity={activity} key={index} />)}
+      <div className='activity-list-container'>
+        {this.props.activities.map((activity, index) => <ActivityListItem addmyactivity={this.props.addmyactivity} activity={activity} key={index} />)}
       </div>
     )
   }

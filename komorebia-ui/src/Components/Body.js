@@ -11,7 +11,10 @@ class Body extends Component{
     return(
       <div>
         <CreateActivity addactivity={this.props.addactivity} />
-        <ActivityList activities={this.props.activities} users={this.props.users} />
+        <h2>Spotlight Activities</h2>
+        <ActivityList activities={this.props.activities} addmyactivity={this.props.addmyactivity} users={this.props.users} />
+        <h2>My Created Activities</h2>
+        <ActivityList activities={this.props.myactivities} addmyactivity={this.props.addmyactivity} users={this.props.users} />
       </div>
     )
   }

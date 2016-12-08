@@ -28,10 +28,11 @@
   display: none;
 }
 
-.create-activity-container a{
+.create-button, .create-activity-container a{
   display: inline-block;
   padding: 5px 40px;
   text-decoration: none;
   color: #ffffff;
   background-color: #008800;
+  border: none;
 }

@@ -52,6 +52,7 @@ class CreateActivity extends Component{
           <a href="#" className="" onClick={this._openForm}>Add new activity</a>
         </div>
         <div className={this.state.divClass}>
+          <h2>Cow</h2>
           <form onSubmit={(event) => this._handleSubmit(event)}>
             <p>
               {/* <label>Title: </label> */}
