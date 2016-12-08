@@ -14,8 +14,9 @@ class App extends Component {
       myActivitiesLoaded: false,
       appUsers: [],
       activitiesLoaded: false,
-      currentUser: {},
-      userLoaded: false
+      currentUser: '',
+      userLoaded: false,
+      myParticipatingLoaded: false
     }
     this._getActivities = this._getActivities.bind(this);
     this._getMyActivities = this._getMyActivities.bind(this);
@@ -28,6 +29,7 @@ class App extends Component {
   componentWillMount(){
     this._getActivities();
     this._getMyActivities();
+    this._getMyParticipating();
     this._getUsers();
     this._checkUser();
   }
@@ -44,6 +46,15 @@ class App extends Component {
       let mynewactivities = response.data;
       console.log(mynewactivities);
       this.setState({myCreatedActivities: mynewactivities, myActivitiesLoaded: true})
+    }).catch((error) =>{console.log(error);})
+  }
+  _getMyParticipating(){
+    let currentSub = localStorage.getItem('sub');
+    currentSub = currentSub.replace(/[|,]/g, "");
+    axios.get('https://komorebia-api.herokuapp.com/activities/participants/' + currentSub).then((response) =>{
+      let mynewparticipating = response.data;
+      console.log(mynewparticipating);
+      this.setState({myActivities: mynewparticipating, myParticipatingLoaded: true})
     }).catch((error) =>{console.log(error);})
   }
   _checkUser(){
@@ -97,22 +108,23 @@ class App extends Component {
     let currentSub = localStorage.getItem('sub');
     currentSub = currentSub.replace(/[|,]/g, "");
     newparticipants.push(currentSub);
-    console.log(newparticipants);
+    //console.log(newparticipants);
     let newMyActivity = {
       participants: newparticipants
     }
-    newMyActivity = JSON.stringify(newMyActivity);
+    //newMyActivity = JSON.stringify(newMyActivity);
     var apiUrl = 'https://komorebia-api.herokuapp.com/activities/' + activityId;
     console.log(apiUrl);
     console.log(newMyActivity);
-    axios.put(apiUrl, newMyActivity).then((response) =>{
+
+    axios.put(apiUrl, newMyActivity, {contentType: 'application/json'}).then((response) =>{
       console.log(response);
     }).catch((error) => {console.log(error);})
   }
   _loadActivities(){
-    if (this.state.activitiesLoaded === true && this.state.userLoaded === true && this.state.myActivitiesLoaded === true){
+    if (this.state.activitiesLoaded === true && this.state.userLoaded === true && this.state.myActivitiesLoaded === true && this.state.myParticipatingLoaded === true){
       //console.log(this.state.currentUser);
-      return <Home activities={this.state.spotlightActivities} addmyactivity={this._addMyActivity} myactivities={this.state.myCreatedActivities} addactivity={this._addActivity} current={this.state.currentUser} />
+      return <Home activities={this.state.spotlightActivities} addmyactivity={this._addMyActivity} myCreatedActivities={this.state.myCreatedActivities} myActivities={this.state.myActivities} addactivity={this._addActivity} current={this.state.currentUser} />
     } else {
       //console.log(this.state.myActivitiesLoaded);
       return <h3>Loading Activities...</h3>
