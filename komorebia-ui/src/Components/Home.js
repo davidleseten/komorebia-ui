@@ -11,8 +11,8 @@ class Home extends Component{
   render(){
     return(
       <div>
-        <Header current={this.props.current} />
-        <Body activities={this.props.activities} myCreatedActivities={this.props.myCreatedActivities} myActivities={this.props.myActivities} users={this.props.users} addactivity={this.props.addactivity} addmyactivity={this.props.addmyactivity} />
+        <Header current={this.props.current} addactivity={this.props.addactivity} />
+        <Body activities={this.props.activities} myCreatedActivities={this.props.myCreatedActivities} myActivities={this.props.myActivities} users={this.props.users} addmyactivity={this.props.addmyactivity} />
       </div>
     )
   }

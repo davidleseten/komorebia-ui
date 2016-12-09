@@ -1,14 +1,29 @@
-.create-activity-container{
+
+.create-hero-container{
+  width: 100%;
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) ), url('/hero-bg.jpg');
+  /*background-image: url('/hero-bg.jpg');*/
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
-  flex-direction: row-reverse;
-  padding-right: 10px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 .create-activity-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 400px;
   padding: 10px;
   background-color: #ffffff;
+  border: 1px solid rgba(25, 25, 25, 0.5);
   z-index: 100;
   margin: 0 auto;
+  box-shadow: 0px 10px 20px rgba(25, 25, 25, 0.5);
 }
 .create-activity-form .create-input{
   width: 350px;
@@ -28,7 +43,22 @@
   display: none;
 }
 
-.create-button, .create-activity-container a{
+.create-hero-container a{
+  display: inline-block;
+  padding: 5px 40px;
+  text-decoration: none;
+  color: #008800;
+  background-color: #ffffff;
+  border: none;
+  font-size: 1.2em;
+}
+.create-hero-container h1{
+  font-family: 'Noto Serif', serif;
+  color: #ffffff;
+  font-style: italic;
+  font-size: 2em;
+}
+.create-button{
   display: inline-block;
   padding: 5px 40px;
   text-decoration: none;

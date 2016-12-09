@@ -44,7 +44,7 @@ class App extends Component {
     currentSub = currentSub.replace(/[|,]/g, "");
     axios.get('https://komorebia-api.herokuapp.com/activities/user/' + currentSub).then((response) =>{
       let mynewactivities = response.data;
-      console.log(mynewactivities);
+      //console.log(mynewactivities);
       this.setState({myCreatedActivities: mynewactivities, myActivitiesLoaded: true})
     }).catch((error) =>{console.log(error);})
   }
@@ -53,7 +53,7 @@ class App extends Component {
     currentSub = currentSub.replace(/[|,]/g, "");
     axios.get('https://komorebia-api.herokuapp.com/activities/participants/' + currentSub).then((response) =>{
       let mynewparticipating = response.data;
-      console.log(mynewparticipating);
+      //console.log(mynewparticipating);
       this.setState({myActivities: mynewparticipating, myParticipatingLoaded: true})
     }).catch((error) =>{console.log(error);})
   }
@@ -102,6 +102,7 @@ class App extends Component {
     //console.log(newActivity);
     axios.post('https://komorebia-api.herokuapp.com/activities', newActivity).then((response) =>{
       console.log(response);
+      
     }).catch((error) => {console.log(error);})
   }
   _addMyActivity(activityId, newparticipants){
@@ -118,7 +119,8 @@ class App extends Component {
     console.log(newMyActivity);
 
     axios.put(apiUrl, newMyActivity, {contentType: 'application/json'}).then((response) =>{
-      console.log(response);
+      console.log(this);
+
     }).catch((error) => {console.log(error);})
   }
   _loadActivities(){

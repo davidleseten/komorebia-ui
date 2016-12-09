@@ -1,7 +1,13 @@
 .body-content-container{
   padding: 5px;
+  width: 80%;
+  margin: 0 auto;
 }
 .divider{
   border-bottom: 1px solid #eeeeee;
   margin: 5px 0px;
+}
+.no-content-text{
+  color: #999999;
+  font-size: .8em;
 }

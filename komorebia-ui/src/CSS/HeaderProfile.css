@@ -1,0 +1,15 @@
+.profile-image{
+  height: 25px;
+  width: auto;
+  border-radius: 50%;
+}
+.profile-information{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+.profile-information div{
+  margin: 2px;
+  font-size: .8em;
+}

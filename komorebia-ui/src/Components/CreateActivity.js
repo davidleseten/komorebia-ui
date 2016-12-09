@@ -48,11 +48,14 @@ class CreateActivity extends Component{
   render(){
     return(
       <div>
-        <div className='create-activity-container'>
-          <a href="#" className="" onClick={this._openForm}>Add new activity</a>
+        <div className='create-hero-container'>
+          <h1>Join a community making a better world one activity at a time!</h1>
+          <p>
+            <a href="#" className="" onClick={this._openForm}>Get Started! Create A New Activity</a>
+          </p>
         </div>
         <div className={this.state.divClass}>
-          <h2>Activity Details</h2>
+          <h2>Create A New Activity</h2>
           <form onSubmit={(event) => this._handleSubmit(event)}>
             <p>
               {/* <label>Title: </label> */}
