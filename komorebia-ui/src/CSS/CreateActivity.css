@@ -1,7 +1,7 @@
 
 .create-hero-container{
   width: 100%;
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) ), url('/hero-bg.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) ), url('http://imgur.com/V4Z60zQ.jpg');
   /*background-image: url('/hero-bg.jpg');*/
   height: 200px;
   background-repeat: no-repeat;

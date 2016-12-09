@@ -21,6 +21,7 @@ ReactDOM.render(
     <Route path="/" auth={auth}>
       <IndexRoute component={Login} />
       <Route path="/home" component={App} onEnter={requireAuth} />
+      <Route path='/access_token=:token' component={App}/>
       <Route path="*" component={NoContent}/>
     </Route>
   </Router>,
