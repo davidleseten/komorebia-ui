@@ -102,7 +102,8 @@ class App extends Component {
     //console.log(newActivity);
     axios.post('https://komorebia-api.herokuapp.com/activities', newActivity).then((response) =>{
       console.log(response);
-      
+      this._getActivities();
+      this._getMyActivities();
     }).catch((error) => {console.log(error);})
   }
   _addMyActivity(activityId, newparticipants){
@@ -115,12 +116,12 @@ class App extends Component {
     }
     //newMyActivity = JSON.stringify(newMyActivity);
     var apiUrl = 'https://komorebia-api.herokuapp.com/activities/' + activityId;
-    console.log(apiUrl);
-    console.log(newMyActivity);
+    //console.log(apiUrl);
+    //console.log(newMyActivity);
 
     axios.put(apiUrl, newMyActivity, {contentType: 'application/json'}).then((response) =>{
       console.log(this);
-
+      this._getMyParticipating();
     }).catch((error) => {console.log(error);})
   }
   _loadActivities(){
